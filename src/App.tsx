@@ -1,49 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Layout from './components/Layout'
+import React, { useState } from 'react';
+import './App.css';
+import Layout from './components/Layout';
+const baseClasses=
+  "Flex items-center p-4 bg-white rounded-ig shadow-nd border border-gray-200 sb-4w-full max-w-ed"
 
-function App() {
-  const [count, setCount] = useState(0)
+// 定義計算機按鈕的資料型別：這是一個包含字串的陣列，每個字串代表一個按鈕
+const signList = [
+  '%', 'CE', 'C', '⌫',
+  '1/x', 'x²', '²√x', '÷',
+  '7', '8', '9', 'x',
+  '4', '5', '6', '-',
+  '1', '2', '3', '+',
+  '±', '0', '.', '='
+];
+
+const App: React.FC = () => {
+  const [count, setCount] = useState(0);
 
   return (
-      <Layout>
-
+    <Layout>
       <div className="grid grid-cols-4 gap-4">
-        {/* 這裡面的子元素會自動變成 3 欄排列 */}
-        <div>%</div>
-        <div>CE</div>
-        <div>C</div>
-        <div>X</div>
+        {
+        signList.map(
+          (sign, index) => (
 
-        <div>1/x</div>
-        <div>x²</div>
-        <div>²√x</div>
-        <div>÷</div>
-
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-        <div>x</div>
-
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>-</div>
-
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>+</div>
-
-        <div>+/-</div>
-        <div>0</div>
-        <div>.</div>
-        <div>=</div>
+          <div key={index} className={baseClasses}>
+            {sign}
+          </div>
+        ))}
       </div>
     </Layout>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -6,8 +6,8 @@ import { MyView } from './MyView.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {/* <App /> */}
-    <MyView/>
+    <App />
+    {/* <MyView/> */}
 
   </StrictMode>,
 )
